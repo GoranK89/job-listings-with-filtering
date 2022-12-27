@@ -1,8 +1,15 @@
+import { Fragment } from "react";
+import Banner from "./components/Banner/Banner";
+import JobCard from "./components/JobCard/JobCard";
+
 function App() {
   return (
-    <div>
-      <h1>hello</h1>
-    </div>
+    <Fragment>
+      <Banner />
+      <main>
+        <JobCard />
+      </main>
+    </Fragment>
   );
 }
 

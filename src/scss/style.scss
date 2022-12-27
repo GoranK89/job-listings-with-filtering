@@ -1,1 +1,8 @@
+@import "config";
+@import "../components/Banner/banner";
+@import "../components/JobCard/jobCard";
 
+main {
+  background-color: $backgroundColor;
+  font-size: 1.6rem;
+}
