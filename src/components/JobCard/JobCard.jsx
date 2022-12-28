@@ -1,28 +1,24 @@
 import PhotoSnap from "../../assets/images/photosnap.svg";
+import CompanyLogo from "./CompanyLogo";
+import JobDetails from "./JobDetails";
+import JobTags from "./JobTags";
 
-const JobCard = () => {
+const JobCard = (props) => {
   return (
     <div className="job-posting_container">
-      <img className="company-logo" src={PhotoSnap} alt="company logo" />
-      <div className="job-details_box">
-        <div className="company-header_wrapper">
-          <p>Company Name</p>
-          <span className="tag tag-new">New!</span>
-          <span className="tag tag-featured">Featured!</span>
-        </div>
-        <p className="job-title">Job title</p>
-        <div className="job-info_wrapper">
-          <span>Posted on</span>
-          <span>Job type</span>
-          <span>Location</span>
-        </div>
-      </div>
-
-      <div className="job-tags_wrapper">
-        <span className="filter-tag">Tag</span>
-        <span className="filter-tag">Tag</span>
-        <span className="filter-tag">Tag</span>
-      </div>
+      <CompanyLogo src={PhotoSnap} />
+      <JobDetails
+        companyName={props.companyName}
+        tagNew
+        tagFeatured={props.tagFeatured}
+        jobTitle={props.jobTitle}
+        postedAt={props.postedAt}
+        jobType={props.jobType}
+        jobLocation={props.jobLocation}
+        jobNew={props.jobNew}
+        jobFeatured={props.jobFeatured}
+      />
+      <JobTags jobsData={props.jobNew} />
     </div>
   );
 };

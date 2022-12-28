@@ -1,0 +1,13 @@
+.job-tags_wrapper {
+  display: flex;
+  margin-left: auto;
+  gap: 1rem;
+
+  .filter-tag {
+    padding: 6px;
+    border-radius: 2px;
+    font-weight: 600;
+    background-color: $filterTabletsColor;
+    color: $cyan;
+  }
+}

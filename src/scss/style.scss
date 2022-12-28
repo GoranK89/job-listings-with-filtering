@@ -1,8 +1,15 @@
 @import "config";
 @import "../components/Banner/banner";
 @import "../components/JobCard/jobCard";
+@import "../components/JobCard/jobDetails";
+@import "../components/JobCard/jobTags";
+@import "../components/JobCard/companyLogo";
 
 main {
-  background-color: $backgroundColor;
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   font-size: 1.6rem;
 }
