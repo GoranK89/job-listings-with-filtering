@@ -4,10 +4,16 @@
   gap: 1rem;
 
   .filter-tag {
-    padding: 6px;
-    border-radius: 2px;
+    padding: 10px 6px;
+    border-radius: 5px;
     font-weight: 600;
     background-color: $filterTabletsColor;
     color: $cyan;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $cyan;
+      color: #fff;
+    }
   }
 }

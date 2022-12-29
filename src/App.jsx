@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import Banner from "./components/Banner/Banner";
+import JobFilter from "./components/JobFilter/JobFilter";
 import JobCard from "./components/JobCard/JobCard";
 
 function App() {
@@ -17,27 +18,36 @@ function App() {
     }
     getJobsData();
   }, []);
-  // console.log(jobsData);
+
+  const renderJobCards = () => {
+    return jobsData?.map((job) => (
+      <JobCard
+        key={job?.id}
+        companyName={job?.company}
+        logo={job?.logo}
+        tagNew={job?.new}
+        tagFeatured={job?.featured}
+        jobTitle={job?.position}
+        postedAt={job?.postedAt}
+        jobType={job?.contract}
+        jobLocation={job?.location}
+        jobNew={job?.new}
+        jobFeatured={job?.featured}
+        languages={job?.languages}
+        tools={job?.tools}
+        level={job?.level}
+        role={job?.role}
+      />
+    ));
+  };
 
   return (
     <Fragment>
-      <Banner />
-      <main>
-        {jobsData?.map((job) => (
-          <JobCard
-            key={job?.id}
-            companyName={job?.company}
-            tagNew={job?.new}
-            tagFeatured={job?.featured}
-            jobTitle={job?.position}
-            postedAt={job?.postedAt}
-            jobType={job?.contract}
-            jobLocation={job?.location}
-            jobNew={job?.new}
-            jobFeatured={job?.featured}
-          />
-        ))}
-      </main>
+      <div className="banner-filter_container">
+        <Banner />
+        <JobFilter />
+      </div>
+      <main>{renderJobCards()}</main>
     </Fragment>
   );
 }

@@ -1,0 +1,60 @@
+.job-filter_container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  border-radius: 5px;
+  transform: translate(50%, 50%);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 4rem;
+  background-color: #fff;
+  box-shadow: 0px 6px 12px 0px hsla(180, 8%, 52%, 0.2);
+
+  .job-filter-tag_wrapper {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    border-radius: 5px;
+    gap: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $cyan;
+    background-color: $filterTabletsColor;
+
+    button {
+      border: none;
+      border-radius: 0 5px 5px 0;
+      height: 3rem;
+      width: 3rem;
+      background-color: $cyan;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #fff;
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+        background-color: #000;
+      }
+    }
+  }
+
+  .clear-filter {
+    border: none;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $DarkGrayishCyan;
+    background-color: #fff;
+
+    &:hover,
+    &:active {
+      color: $cyan;
+      border-bottom: 1px solid $cyan;
+    }
+  }
+}
