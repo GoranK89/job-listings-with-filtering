@@ -12,6 +12,7 @@ function App() {
         let response = await fetch("data.json");
         let data = await response.json();
         setJobsData(data);
+        console.log(data);
       } catch (error) {
         console.error(`Could not get API data, ${error}`);
       }
@@ -19,35 +20,15 @@ function App() {
     getJobsData();
   }, []);
 
-  const renderJobCards = () => {
-    return jobsData?.map((job) => (
-      <JobCard
-        key={job?.id}
-        companyName={job?.company}
-        logo={job?.logo}
-        tagNew={job?.new}
-        tagFeatured={job?.featured}
-        jobTitle={job?.position}
-        postedAt={job?.postedAt}
-        jobType={job?.contract}
-        jobLocation={job?.location}
-        jobNew={job?.new}
-        jobFeatured={job?.featured}
-        languages={job?.languages}
-        tools={job?.tools}
-        level={job?.level}
-        role={job?.role}
-      />
-    ));
-  };
-
   return (
     <Fragment>
       <div className="banner-filter_container">
         <Banner />
         <JobFilter />
       </div>
-      <main>{renderJobCards()}</main>
+      <main>
+        <JobCard jobsData={jobsData} />
+      </main>
     </Fragment>
   );
 }

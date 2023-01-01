@@ -4,35 +4,35 @@ import JobDetails from "./JobDetails";
 import JobTags from "./JobTags";
 
 const JobCard = (props) => {
-  const getImgUrl = () => {
-    const lastSlashInImgs = Image.lastIndexOf("/");
-    const lastSlashInCompanyLogo = props.logo.lastIndexOf("/");
-    const imgsSrc = Image.slice(0, lastSlashInImgs);
-    const companyLogo = props.logo.slice(lastSlashInCompanyLogo);
-    const result = (imgsSrc + companyLogo).toString();
-    return result;
-  };
+  const srcImgSliceIndex = Image.lastIndexOf("/");
+  const imgsSrc = Image.slice(0, srcImgSliceIndex);
+  const companyLogoSliceIndex = props.jobsData[0]?.logo.lastIndexOf("/");
+  const renderCompanyLogos = (job) =>
+    `${imgsSrc}${job.logo.slice(companyLogoSliceIndex)}`;
 
   return (
-    <div className="job-posting_container">
-      <CompanyLogo src={getImgUrl()} />
-      <JobDetails
-        companyName={props.companyName}
-        tagNew={props.tagNew}
-        tagFeatured={props.tagFeatured}
-        jobTitle={props.jobTitle}
-        postedAt={props.postedAt}
-        jobType={props.jobType}
-        jobLocation={props.jobLocation}
-        jobNew={props.jobNew}
-        jobFeatured={props.jobFeatured}
-      />
-      <JobTags
-        languages={props.languages}
-        tools={props.tools}
-        level={props.level}
-        role={props.role}
-      />
+    <div className="job-card_container">
+      {props.jobsData?.map((job) => (
+        <div key={job.id} className="job-posting_wrapper">
+          <CompanyLogo src={renderCompanyLogos(job)} />
+          <JobDetails
+            companyName={job.company}
+            tagNew={job.new}
+            tagFeatured={job.featured}
+            jobTitle={job.position}
+            postedAt={job.postedAt}
+            jobType={job.contract}
+            jobLocation={job.location}
+          />
+          <JobTags
+            id={job.id}
+            role={job.role}
+            level={job.level}
+            languages={job.languages}
+            tools={job.tools}
+          />
+        </div>
+      ))}
     </div>
   );
 };
