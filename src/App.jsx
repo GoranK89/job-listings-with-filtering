@@ -4,15 +4,12 @@ import JobFilter from "./components/JobFilter/JobFilter";
 import JobCard from "./components/JobCard/JobCard";
 
 function App() {
-  const [jobsData, setJobsData] = useState([]);
-
   useEffect(() => {
     async function getJobsData() {
       try {
         let response = await fetch("data.json");
         let data = await response.json();
         setJobsData(data);
-        console.log(data);
       } catch (error) {
         console.error(`Could not get API data, ${error}`);
       }
@@ -20,14 +17,37 @@ function App() {
     getJobsData();
   }, []);
 
+  const [jobsData, setJobsData] = useState([]);
+  const [filteredKeywords, setFilteredKeywords] = useState([]);
+
+  const addFilteredKeywords = (data) => {
+    if (!filteredKeywords.includes(data)) {
+      setFilteredKeywords((prevStatte) => [...prevStatte, data]);
+    }
+  };
+
+  const onClearClickHandler = () => {
+    setFilteredKeywords([]);
+  };
+  const onXclickHandler = (index) => {
+    filteredKeywords.splice(index, 1);
+    setFilteredKeywords([...filteredKeywords]);
+  };
+
   return (
     <Fragment>
       <div className="banner-filter_container">
         <Banner />
-        <JobFilter />
+        {filteredKeywords.length > 0 && (
+          <JobFilter
+            filteredKeywords={filteredKeywords}
+            setClearClick={onClearClickHandler}
+            setXclick={onXclickHandler}
+          />
+        )}
       </div>
       <main>
-        <JobCard jobsData={jobsData} />
+        <JobCard jobsData={jobsData} setKeywords={addFilteredKeywords} />
       </main>
     </Fragment>
   );

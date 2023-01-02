@@ -1,15 +1,13 @@
-const JobFilter = () => {
+const JobFilter = (props) => {
   return (
     <div className="job-filter_container">
-      <div className="job-filter-tag_wrapper">
-        <span>Frontend</span>
-        <button>X</button>
-      </div>
-      <div className="job-filter-tag_wrapper">
-        <span>CSS</span>
-        <button className="btn">X</button>
-      </div>
-      <button href="#" className="clear-filter">
+      {props.filteredKeywords.map((keyword, i) => (
+        <div key={i} className="job-filter-tag_wrapper">
+          <span>{keyword}</span>
+          <button onClick={() => props.setXclick(i)}>X</button>
+        </div>
+      ))}
+      <button className="clear-filter" onClick={props.setClearClick}>
         Clear
       </button>
     </div>

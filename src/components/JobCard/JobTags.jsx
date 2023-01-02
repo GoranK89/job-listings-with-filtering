@@ -1,23 +1,22 @@
 const JobTags = (props) => {
-  const languagesList = () =>
-    props.languages.map((language, i) => (
-      <li key={i} className="filter-tag">
-        {language}
-      </li>
-    ));
-  const toolsList = () =>
-    props.tools.map((tool, i) => (
-      <li key={i} className="filter-tag">
-        {tool}
-      </li>
-    ));
+  const keywords = [
+    props.role,
+    props.level,
+    ...props.languages,
+    ...props.tools,
+  ];
 
   return (
     <ul className="job-tags_wrapper">
-      <li className="filter-tag">{props.role}</li>
-      <li className="filter-tag">{props.level}</li>
-      {languagesList()}
-      {toolsList()}
+      {keywords.map((keyword, i) => (
+        <li
+          onClick={() => props.setKeywords(keyword)}
+          key={i}
+          className="filter-tag"
+        >
+          {keyword}
+        </li>
+      ))}
     </ul>
   );
 };

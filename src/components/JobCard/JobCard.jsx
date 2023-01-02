@@ -23,6 +23,8 @@ const JobCard = (props) => {
             postedAt={job.postedAt}
             jobType={job.contract}
             jobLocation={job.location}
+            jobFeatured={job.featured}
+            jobNew={job.new}
           />
           <JobTags
             id={job.id}
@@ -30,6 +32,7 @@ const JobCard = (props) => {
             level={job.level}
             languages={job.languages}
             tools={job.tools}
+            setKeywords={props.setKeywords}
           />
         </div>
       ))}
