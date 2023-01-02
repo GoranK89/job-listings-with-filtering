@@ -26,12 +26,13 @@ function App() {
     }
   };
 
+  // Filter click Handlers
   const onClearClickHandler = () => {
     setFilteredKeywords([]);
   };
-  const onXclickHandler = (index) => {
-    filteredKeywords.splice(index, 1);
-    setFilteredKeywords([...filteredKeywords]);
+  const onXclickHandler = (data) => {
+    const newKeywords = filteredKeywords.filter((keyword) => keyword !== data);
+    setFilteredKeywords(newKeywords);
   };
 
   return (
@@ -47,7 +48,11 @@ function App() {
         )}
       </div>
       <main>
-        <JobCard jobsData={jobsData} setKeywords={addFilteredKeywords} />
+        <JobCard
+          jobsData={jobsData}
+          keywords={filteredKeywords}
+          setKeywords={addFilteredKeywords}
+        />
       </main>
     </Fragment>
   );

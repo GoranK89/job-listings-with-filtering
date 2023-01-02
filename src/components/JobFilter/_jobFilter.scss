@@ -23,15 +23,13 @@
     color: $cyan;
     background-color: $filterTabletsColor;
 
-    button {
+    img {
       border: none;
       border-radius: 0 5px 5px 0;
+      padding: 7px;
       height: 3rem;
       width: 3rem;
       background-color: $cyan;
-      font-weight: 600;
-      font-size: 1.8rem;
-      color: #fff;
 
       &:hover,
       &:active {

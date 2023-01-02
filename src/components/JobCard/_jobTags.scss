@@ -2,6 +2,7 @@
   display: flex;
   margin-left: auto;
   gap: 1rem;
+  padding-right: 3rem;
 
   .filter-tag {
     padding: 10px 6px;
@@ -14,6 +15,7 @@
       cursor: pointer;
       background-color: $cyan;
       color: #fff;
+      transition: 0.3s;
     }
   }
 }
