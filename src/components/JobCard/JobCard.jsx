@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Image from "../../../public/images/account.svg";
+import Image from "../../assets/images/account.svg";
 import CompanyLogo from "./CompanyLogo";
 import JobDetails from "./JobDetails";
 import JobTags from "./JobTags";
