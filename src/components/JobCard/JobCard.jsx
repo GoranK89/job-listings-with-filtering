@@ -36,9 +36,16 @@ const JobCard = (props) => {
   }, [props.jobsData, props.keywords]);
 
   return (
-    <div className="job-card_container">
+    <div className={"job-card_container"}>
       {filteredData?.map((job) => (
-        <div key={job.id} className="job-posting_wrapper">
+        <div
+          key={job.id}
+          className={
+            job.featured
+              ? "job-posting_wrapper featured-border"
+              : "job-posting_wrapper"
+          }
+        >
           <CompanyLogo src={renderCompanyLogos(job)} />
           <JobDetails
             companyName={job.company}

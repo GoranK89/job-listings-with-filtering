@@ -1,6 +1,7 @@
 .job-card_container {
   max-width: 115rem;
   margin: 0 auto;
+  margin-bottom: 2rem;
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
@@ -14,5 +15,41 @@
     padding: 3rem 2rem;
     background-color: #fff;
     box-shadow: 0px 6px 12px 0px hsla(180, 8%, 52%, 0.2);
+  }
+}
+
+.featured-border {
+  border-left: 7px solid $cyan;
+}
+
+@media screen and (max-width: 900px) {
+  .job-card_container {
+    .job-posting_wrapper {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .job-card_container {
+    .job-posting_wrapper {
+      position: relative;
+      align-items: flex-start;
+
+      .company-logo {
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+        height: 80px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .job-card_container {
+    margin-top: 12rem;
+    gap: 6rem;
   }
 }

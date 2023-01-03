@@ -1,40 +1,46 @@
 .job-filter_container {
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 50%;
-  transform: translate(50%, 50%);
+  left: 50%;
+  width: 1110px;
+  transform: translate(-50%, 50%);
   border-radius: 5px;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   padding: 2rem 4rem;
   background-color: #fff;
   box-shadow: 0px 6px 12px 0px hsla(180, 8%, 52%, 0.2);
 
-  .job-filter-tag_wrapper {
+  .tags-container {
     display: flex;
-    align-items: center;
-    padding-left: 1rem;
-    border-radius: 5px;
+    flex-wrap: wrap;
     gap: 1rem;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: $cyan;
-    background-color: $filterTabletsColor;
 
-    img {
-      border: none;
-      border-radius: 0 5px 5px 0;
-      padding: 7px;
-      height: 3rem;
-      width: 3rem;
-      background-color: $cyan;
+    .job-filter-tag_wrapper {
+      display: flex;
+      align-items: center;
+      padding-left: 1rem;
+      border-radius: 5px;
+      gap: 1rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $cyan;
+      background-color: $filterTabletsColor;
 
-      &:hover,
-      &:active {
-        cursor: pointer;
-        background-color: #000;
+      img {
+        border: none;
+        border-radius: 0 5px 5px 0;
+        padding: 7px;
+        height: 3rem;
+        width: 3rem;
+        background-color: $cyan;
+
+        &:hover,
+        &:active {
+          cursor: pointer;
+          background-color: #000;
+        }
       }
     }
   }
@@ -54,5 +60,11 @@
       color: $cyan;
       border-bottom: 1px solid $cyan;
     }
+  }
+}
+
+@media screen and (max-width: 1166px) {
+  .job-filter_container {
+    width: 94%;
   }
 }

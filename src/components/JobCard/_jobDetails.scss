@@ -10,6 +10,7 @@
 
     p {
       color: $cyan;
+      font-size: 1.8rem;
       font-weight: 600;
     }
 
@@ -39,5 +40,17 @@
     display: flex;
     gap: 1rem;
     color: $DarkGrayishCyan;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .job-details_box {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .job-details_box {
+    margin-top: 3rem;
   }
 }
