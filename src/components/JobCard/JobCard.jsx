@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import Image from "../../assets/images/account.svg";
-import Image2 from "../../assets/images/faceit.svg";
-import Image3 from "../../assets/images/insure.svg";
 import CompanyLogo from "./CompanyLogo";
 import JobDetails from "./JobDetails";
 import JobTags from "./JobTags";
@@ -48,7 +46,7 @@ const JobCard = (props) => {
               : "job-posting_wrapper"
           }
         >
-          <CompanyLogo src={renderCompanyLogos(job)} />
+          <CompanyLogo src={job.logo} />
           <JobDetails
             companyName={job.company}
             tagNew={job.new}
